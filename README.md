@@ -42,7 +42,7 @@
 
 ### Deliverable 7 (June): 
 > Demo in a soccer game between CAMBADA and a human team.
-> Build an application that is able to:
+> Build an application that is able to:<
   Detect and track the robots of CAMBADA, the humans, the referee and the ball.
   Estimate the travelled distance of the ball, referee and teams during the game.
   Detect successful passes between the players, goal attempts, goalkeeper saves and goals.
