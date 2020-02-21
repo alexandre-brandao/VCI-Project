@@ -40,8 +40,9 @@
   Explore the Lucas-Kanade optical flow algorithm to perform object tracking. Using the developed object detection algorithms, the software must be able to distinguish which objects are being tracked (multiple balls and robots; assigning an unique ID,  etc).
   Estimate the travelled distance of the ball and teams during a game.
 
-### Deliverable 7 (June): Demo in a soccer game between CAMBADA and a human team. Build an application that is able to:
-
+### Deliverable 7 (June): 
+> Demo in a soccer game between CAMBADA and a human team.
+> Build an application that is able to:
   Detect and track the robots of CAMBADA, the humans, the referee and the ball.
   Estimate the travelled distance of the ball, referee and teams during the game.
   Detect successful passes between the players, goal attempts, goalkeeper saves and goals.
