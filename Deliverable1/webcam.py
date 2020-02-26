@@ -10,9 +10,18 @@ def nothing(x):
 cap = cv.VideoCapture(0)
 
 cv.namedWindow("frame")
+cv.namedWindow("color")
 cv.createTrackbar("Brightness", "frame", 500, 1000, nothing)
-cv.createTrackbar("Contraste", "frame", 6, 50, nothing)
+cv.createTrackbar("Contraste", "frame", 60, 500, nothing)
 cv.createTrackbar("color/gray", "frame", 0, 1, nothing)
+
+cv.createTrackbar("OFF/ON", "color", 0, 1, nothing)
+cv.createTrackbar("red1_i", "color", 0, 255, nothing)
+cv.createTrackbar("red2_i", "color", 50, 255, nothing)
+cv.createTrackbar("red3_i", "color", 50, 255, nothing)
+cv.createTrackbar("red1_f", "color", 10, 255, nothing)
+cv.createTrackbar("red2_f", "color", 255, 255, nothing)
+cv.createTrackbar("red3_f", "color", 255, 255, nothing)
 
 # Recording parameters
 pause = False
@@ -69,6 +78,14 @@ while(True):
     alpha = cv.getTrackbarPos("Contraste", "frame")
     color = cv.getTrackbarPos("color/gray", "frame")
 
+    s = cv.getTrackbarPos("OFF/ON", "color")
+    red1_i = cv.getTrackbarPos("red1_i", "color")
+    red2_i = cv.getTrackbarPos("red2_i", "color")
+    red3_i = cv.getTrackbarPos("red3_i", "color")
+    red1_f = cv.getTrackbarPos("red1_f", "color")
+    red2_f = cv.getTrackbarPos("red2_f", "color")
+    red3_f = cv.getTrackbarPos("red3_f", "color")
+
     if color == 0:
         pass
     else:
@@ -76,7 +93,16 @@ while(True):
 
     # manipulating values
     frame_t = np.zeros(frame.shape, frame.dtype)
-    frame = cv.addWeighted(frame, alpha-5, frame_t, 0, beta/2-250)
+    frame = cv.addWeighted(frame, alpha/10-5, frame_t, 0, beta/2-250)
+
+    # red color range
+    hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+    lower_red = np.array([red1_i,red2_i,red3_i])
+    upper_red = np.array([red1_f,red2_f,red3_f])
+    mask_r = cv.inRange(hsv, lower_red, upper_red)
+    red_only = cv.bitwise_and(frame, frame, mask=mask_r)
+    mask = cv.cvtColor(mask_r, cv.COLOR_GRAY2BGR)
+    res = cv.subtract(frame, mask)
 
     # recording
     pressKey = cv.waitKey(1)
@@ -102,6 +128,9 @@ while(True):
 
     # display final frame
     cv.imshow("frame", frame)
+    if s == 1:
+        #cv.imshow("mask", mask)
+        cv.imshow("frame", red_only)
 
     # key to stop
     if pressKey == ord('q'):
