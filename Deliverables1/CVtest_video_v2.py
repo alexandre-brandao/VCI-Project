@@ -1,8 +1,9 @@
 import numpy as np
 import cv2 as cv
 
+str = input("Enter file path: ")
 #Import video
-cap = cv.VideoCapture('CAMBADA.mp4');
+cap = cv.VideoCapture(str);
 
 #Read video frames...
 if not cap.isOpened():
@@ -25,7 +26,7 @@ while True:
 
     # To force leave the stream
     # Wait 1 millisecond for key input
-    if cv.waitKey(1) == ord('q'): #Ord converts char to its respected value
+    if cv.waitKey(0) == ord('q'): #Ord converts char to its respected value
         break
 
 #Release cap
