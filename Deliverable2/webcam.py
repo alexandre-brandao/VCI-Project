@@ -30,6 +30,7 @@ cv.createTrackbar("red1_f", "color", 10, 255, nothing)
 cv.createTrackbar("red2_f", "color", 255, 255, nothing)
 cv.createTrackbar("red3_f", "color", 255, 255, nothing)
 
+cv.createTrackbar("equalize", "kernel", 0, 1, nothing)
 cv.createTrackbar("yuv", "kernel", 0, 1, nothing)
 cv.createTrackbar("hsv", "kernel", 0, 1, nothing)
 cv.createTrackbar("gaussian", "kernel", 0, 30, nothing)
@@ -111,6 +112,10 @@ while(True):
     # frame by frame
     ret, frame = cap.read()
 
+    noise_a = np.random.normal(0,0.7,frame.size)
+    noise_a = noise_a.reshape(frame.shape[0], frame.shape[1], frame.shape[2]).astype('uint8')
+    frame = cv.add(frame, noise_a)
+
     if ret == True:
 
         if resizeWidth > 0:
@@ -140,14 +145,18 @@ while(True):
         red2_f = cv.getTrackbarPos("red2_f", "color")
         red3_f = cv.getTrackbarPos("red3_f", "color")
 
+        a_equ = cv.getTrackbarPos("equalize","kernel")
         a_yuv = cv.getTrackbarPos("yuv","kernel")
         a_hsv = cv.getTrackbarPos("hsv","kernel")
         blur = cv.getTrackbarPos("blur","kernel")
         gaus = cv.getTrackbarPos("gaussian","kernel")
 
-
         if bw == 1:
             frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+            if a_equ == 1:
+                equ = cv.equalizeHist(frame)
+                frame = np.hstack((frame,equ))
+
         elif s == 1:
             #cv.imshow("mask", mask)
             cv.imshow("frame", red_only)
