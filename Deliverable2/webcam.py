@@ -11,6 +11,7 @@ def nothing(x):
 cap = cv.VideoCapture(0)
 cv.namedWindow("frame")
 cv.namedWindow("color")
+cv.namedWindow("kernel")
 cameraWidth = 640
 cameraHeight = 480
 cap.set(3,cameraWidth)
@@ -28,6 +29,11 @@ cv.createTrackbar("red3_i", "color", 50, 255, nothing)
 cv.createTrackbar("red1_f", "color", 10, 255, nothing)
 cv.createTrackbar("red2_f", "color", 255, 255, nothing)
 cv.createTrackbar("red3_f", "color", 255, 255, nothing)
+
+cv.createTrackbar("yuv", "kernel", 0, 1, nothing)
+cv.createTrackbar("hsv", "kernel", 0, 1, nothing)
+cv.createTrackbar("gaussian", "kernel", 0, 30, nothing)
+cv.createTrackbar("blur", "kernel", 0, 50, nothing)
 
 # Recording parameters
 pause = False
@@ -134,11 +140,27 @@ while(True):
         red2_f = cv.getTrackbarPos("red2_f", "color")
         red3_f = cv.getTrackbarPos("red3_f", "color")
 
+        a_yuv = cv.getTrackbarPos("yuv","kernel")
+        a_hsv = cv.getTrackbarPos("hsv","kernel")
+        blur = cv.getTrackbarPos("blur","kernel")
+        gaus = cv.getTrackbarPos("gaussian","kernel")
+
+
         if bw == 1:
             frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
         elif s == 1:
             #cv.imshow("mask", mask)
             cv.imshow("frame", red_only)
+        elif a_hsv == 1:
+            frame = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+        elif a_yuv == 1:
+            frame = cv.cvtColor(frame, cv.COLOR_BGR2YUV)
+
+        if blur > 0:
+            frame = cv.blur(frame,(blur+1,blur+1))
+
+        if (gaus > 0) and (gaus % 2 == 0):
+            frame = cv.medianBlur(frame,gaus+1)
 
         # color range
         if bw == 0:
