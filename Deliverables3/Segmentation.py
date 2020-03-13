@@ -49,7 +49,8 @@ cv.createTrackbar('V_Lower', 'image', 0, 255, nothing)
 cv.setMouseCallback('image', paint)
 
 #  Blur the image
-blur = cv.GaussianBlur(img, (5, 5), 0)
+#blur = cv.GaussianBlur(img, (5, 5), 0)
+blur = cv.medianBlur(img, 5)
 #  Obtain HSV image
 frame_HSV = cv.cvtColor(blur, cv.COLOR_BGR2HSV)
 
@@ -100,7 +101,7 @@ while 1:
     fig.canvas.draw()
 
     # HSV_IMAGE = cv.merge([H_mat, S_mat, V_mat])
-    frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    #frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     cv.imshow('image', frame)
     cv.imshow('original', img)
 
@@ -122,8 +123,8 @@ BALL_UPPER = np.array([033, 200,235])
 BALL_LOWER = np.array([027, 160,135])
 
 FIELD LINES
-FIELD_UPPER = np.array([119, 089, 237])
-FIELD_LOWER = np.array([077, 005, 167])
+FIELD_UPPER = np.array([180, 101, 237])
+FIELD_LOWER = np.array([007, 000, 167])
 
  PLAYERS
 RED
