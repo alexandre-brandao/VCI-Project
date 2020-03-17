@@ -22,7 +22,7 @@ def paint(event, x, y,  flags, param):  # these parameters are fixed
         regionSelected = True
 
 
-img = cv.imread('CAMBADA_CLOSEUP.png')
+img = cv.imread('CAMBADAFIELD2.png')
 img = cv.resize(img, (1366, 768), interpolation=cv.INTER_AREA)
 cv.namedWindow('image')
 
@@ -102,6 +102,7 @@ while 1:
 
     # HSV_IMAGE = cv.merge([H_mat, S_mat, V_mat])
     #frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    cv.imshow('mask', mask)
     cv.imshow('image', frame)
     cv.imshow('original', img)
 
@@ -110,8 +111,6 @@ while 1:
 
     if k == 27:
         break
-
-
 
 """ INFO
 RED
