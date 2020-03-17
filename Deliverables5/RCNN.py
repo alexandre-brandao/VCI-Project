@@ -57,7 +57,7 @@ for _, row in train[train.filename == "1.png"].iterrows():
     height = ymax - ymin
 
     print('('+str(width)+','+str(height)+')\n')
-    pos = (xmax - 4git 0, ymin - 20)
+    pos = (xmax - 40, ymin - 20)
     # assign different color to different classes of objects
     if row[1] == 'Ball':
         edgecolor = 'r'
