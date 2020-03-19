@@ -1,29 +1,13 @@
-import pandas as pd
-import os
 from matplotlib import patches
+import pandas as pd
 import matplotlib.pyplot as plt
 
-"""
-def run_csvreader(directory):
-    for CSV in os.listdir(directory):
-        if '.csv' in CSV:
-            train = pd.read_csv(directory+'/'+CSV)
-            train.head()
-        
-        if('.png' in CSV)
-            image = plt.imread('images/1.jpg')
-            plt.imshow(image)
-"""
-"""
-run_csvreader('ObjectDetec/train')
-run_csvreader('ObjectDetec/test')
-"""
 
-path = 'ObjectDetec/train/1'
-train = pd.read_csv(path + '.csv')
+path = 'keras-frcnn/train/'
+train = pd.read_csv(path + 'global.csv')
 train.head()
 
-image = plt.imread(path + '.png')
+image = plt.imread(path + '1.png')
 plt.imshow(image)
 #plt.show()
 
@@ -39,11 +23,8 @@ fig = plt.figure()
 ax = fig.add_axes([0, 0, 1, 1])
 
 # read and plot the image
-image = plt.imread(path+".png")
+image = plt.imread(path+"1.png")
 plt.imshow(image)
-
-print(train[train.name == 'Referee'])
-
 
 # iterating over the image for different objects
 for _, row in train[train.filename == "1.png"].iterrows():
@@ -118,4 +99,15 @@ for _, row in train[train.filename == "1.png"].iterrows():
 
 plt.show()
 
+data = pd.DataFrame()
+data['format'] = train['filename']
 
+# as the images are in train_images folder, add train_images before the image name
+for i in range(data.shape[0]):
+    data['format'][i] = 'train/' + data['format'][i]
+
+# add xmin, ymin, xmax, ymax and class as per the format required
+for i in range(data.shape[0]):
+    data['format'][i] = data['format'][i] + ',' + str(train['xmin'][i]) + ',' + str(train['ymin'][i]) + ',' + str(train['xmax'][i]) + ',' + str(train['ymax'][i]) + ',' + train['cell_type'][i]
+
+data.to_csv('annotate.txt', header=None, index=None, sep=' ')

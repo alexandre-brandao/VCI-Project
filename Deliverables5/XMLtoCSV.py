@@ -42,5 +42,5 @@ def run_program(directory):
 
 
 
-run_program('ObjectDetec/train')
-run_program('ObjectDetec/test')
+run_program('keras-frcnn/train')
+run_program('keras-frcnn/test')
