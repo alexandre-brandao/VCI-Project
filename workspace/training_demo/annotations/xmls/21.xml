@@ -1,62 +1,26 @@
 <annotation>
-	<folder>Images</folder>
+	<folder>images</folder>
 	<filename>21.jpg</filename>
-	<path>C:\Users\Xandr\Desktop\Images\21.png</path>
+	<path>/home/neon/Documents/VCI-Project/workspace/training_demo/images/21.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>1920</width>
-		<height>1080</height>
+		<width>1280</width>
+		<height>720</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
-	<object>
-		<name>B_Goalie</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>134</xmin>
-			<ymin>269</ymin>
-			<xmax>188</xmax>
-			<ymax>337</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>BLUE3</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>324</xmin>
-			<ymin>273</ymin>
-			<xmax>375</xmax>
-			<ymax>338</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>RED5</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>410</xmin>
-			<ymin>265</ymin>
-			<xmax>459</xmax>
-			<ymax>314</ymax>
-		</bndbox>
-	</object>
 	<object>
 		<name>BLUE5</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>548</xmin>
-			<ymin>258</ymin>
-			<xmax>597</xmax>
-			<ymax>308</ymax>
+			<xmin>357</xmin>
+			<ymin>159</ymin>
+			<xmax>410</xmax>
+			<ymax>222</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -65,46 +29,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1009</xmin>
-			<ymin>240</ymin>
-			<xmax>1035</xmax>
-			<ymax>281</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>RED2</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1318</xmin>
-			<ymin>260</ymin>
-			<xmax>1350</xmax>
-			<ymax>286</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>RED3</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1406</xmin>
-			<ymin>265</ymin>
-			<xmax>1431</xmax>
-			<ymax>294</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>RED4</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
 			<xmin>657</xmin>
-			<ymin>181</ymin>
-			<xmax>675</xmax>
-			<ymax>210</ymax>
+			<ymin>144</ymin>
+			<xmax>693</xmax>
+			<ymax>208</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -113,22 +41,22 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1376</xmin>
-			<ymin>286</ymin>
-			<xmax>1392</xmax>
-			<ymax>308</ymax>
+			<xmin>916</xmin>
+			<ymin>192</ymin>
+			<xmax>928</xmax>
+			<ymax>204</ymax>
 		</bndbox>
 	</object>
 	<object>
-		<name>Referee</name>
+		<name>RED2</name>
 		<pose>Unspecified</pose>
-		<truncated>1</truncated>
+		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1335</xmin>
-			<ymin>678</ymin>
-			<xmax>1775</xmax>
-			<ymax>1080</ymax>
+			<xmin>871</xmin>
+			<ymin>157</ymin>
+			<xmax>901</xmax>
+			<ymax>210</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -137,10 +65,58 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1650</xmin>
-			<ymin>338</ymin>
-			<xmax>1683</xmax>
-			<ymax>403</ymax>
+			<xmin>1090</xmin>
+			<ymin>221</ymin>
+			<xmax>1132</xmax>
+			<ymax>268</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Referee</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>884</xmin>
+			<ymin>455</ymin>
+			<xmax>1164</xmax>
+			<ymax>720</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>RED5</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>272</xmin>
+			<ymin>163</ymin>
+			<xmax>313</xmax>
+			<ymax>226</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>BLUE3</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>212</xmin>
+			<ymin>170</ymin>
+			<xmax>256</xmax>
+			<ymax>237</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>B_Goalie</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>83</xmin>
+			<ymin>174</ymin>
+			<xmax>127</xmax>
+			<ymax>225</ymax>
 		</bndbox>
 	</object>
 </annotation>
