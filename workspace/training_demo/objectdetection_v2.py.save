@@ -24,7 +24,7 @@ sys.path.append("..")
 
 from objectdetection.utils import label_map_util
 
-from objectdetection.utils import visualization_utils as vis_util
+from sie-1920-p3-adutils import visualization_utils as vis_util
 
 
 # # Model preparation

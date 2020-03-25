@@ -29,7 +29,7 @@ import cv2 as cv
 cap = cv.VideoCapture('CAMBADA.mp4')
 
 # Define the codec and create VideoWriter object
-fourcc = cv.VideoWriter_fourcc(*'MJPG')
+fourcc = cv.VideoWriter_fourcc(*'XVID')
 out = cv.VideoWriter('output.avi', fourcc, 30.0, (1920,1080))
 
 while(cap.isOpened()):

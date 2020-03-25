@@ -36,7 +36,7 @@ if not cap.isOpened():
 while True:
 
     # Key INPUT
-    k = cv.waitKey(1) & 0xFF
+    k = cv.waitKey(30) & 0xFF
 
     #Capture frame-by-frame
     ret, img = cap.read();
@@ -85,8 +85,3 @@ while True:
 #When everything is done, release the Capture
 cap.release()
 cv.destroyAllWindows()
-
-
-
-
-
