@@ -1,7 +1,7 @@
 # VCI-Project
 ## Deliverables
 
-### Deliverable 1 (26/02/2020): 
+### Deliverable 1 (26/02/2020):
 
   Acquire images using the Raspberry camera or webcam connected to your computer.
   Explore saving videos using compression algorithms (ex. H.264, MJPEG, etc.).
@@ -9,17 +9,17 @@
   Include a watermark (it can be a string identifying the group or a chosen picture).
   Video player able to work with the camera in real-time and read video files.
 
-### Deliverable 2 (11/03/2020): 
+### Deliverable 2 (11/03/2020):
 
   Transform the acquired images to other color spaces, namely YUV and HSV.
   Calculate and display the histograms in real-time of the acquired and transformed images.
   Convert the acquired images to grayscale and apply histogram equalization.
   Apply gaussian and blur filters to the acquired images, exploring different filter kernels.
-  
-### Deliverable 3 (25/03/2020): 
+
+### Deliverable 3 (25/03/2020):
 
   Interact with the OpenCV windows, namely using the mouse (you have to implement the method cv.setMouseCallback()) and trackbars (see for example the methods cv.getTrackbarPos(), cv.createTrackbar()).
-  Segment the most important colors of the CAMBADA soccer field based on color threshold. This threshold is controlled by the developed trackbars in the previous exercise. 
+  Segment the most important colors of the CAMBADA soccer field based on color threshold. This threshold is controlled by the developed trackbars in the previous exercise.
   Perform object detection on grayscale images, resulting from the previous segmentation, morphological operators and low level image features (ball, goals, soccer lines, robots, referee / people, etc).
   Extra mile: Explore automatic segmentation algorithms (e.g. watershed, region growing, etc).
 
@@ -31,7 +31,7 @@
   Perform line detection and ball detection using the Hough transform  (ex. this should allow the detection of balls with different colors and balls in the air).
   Extra mile: Explore other object detection algorithms (e.g. Machine Learning).
 
-### Deliverable 5 (06/05/2020): 
+### Deliverable 5 (06/05/2020):
 
   Perform intrinsic and extrinsic camera parameter calibration using a chess board.
 
@@ -40,7 +40,7 @@
   Explore the Lucas-Kanade optical flow algorithm to perform object tracking. Using the developed object detection algorithms, the software must be able to distinguish which objects are being tracked (multiple balls and robots; assigning an unique ID,  etc).
   Estimate the travelled distance of the ball and teams during a game.
 
-### Deliverable 7 (June): 
+### Deliverable 7 (June):
 > Demo in a soccer game between CAMBADA and a human team.
 > Build an application that is able to:
 
@@ -48,24 +48,5 @@
   Estimate the travelled distance of the ball, referee and teams during the game.
   Detect successful passes between the players, goal attempts, goalkeeper saves and goals.
   Output the game statistics at the end of the game.
-
-
-Lista de comandos que deverao seguir
-- git checkout [nome] : A cada deliverable vai ser criado 3 Branches com os vossos respetivos nomes. Deverao refletir o vosso trabalho no vosso respetivo branch
-Ao final de cada trabalho proposto individualmente, deveremos escolher uma branch para juntar ao MASTER Branch.
-
-- Para adicionar um ficheiro no github
--- git add [file]
-Nota: para quem pretender adicionar uma pasta, o git so deteta pasta com files.
-
-- Para ver o estado atual
--- git status
-
-- Para ver branches disponivel
---git branch
-
-- Para adicionar branches
--- git branch [someName]
-Nota: Deverao ter muito cuidado em saber onde está o HEAD localizado antes de começar a adicionar random heads.
 
 PEEPS, ENJOY

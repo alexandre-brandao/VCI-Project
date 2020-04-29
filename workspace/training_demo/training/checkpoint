@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/neon/TensorFlow/workspace/training_demo/training/model.ckpt-0"
+all_model_checkpoint_paths: "/home/neon/TensorFlow/workspace/training_demo/training/model.ckpt-0"
