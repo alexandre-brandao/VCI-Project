@@ -7,7 +7,6 @@ def nothing(x):
 
 cap = cv.VideoCapture('CAMBADA.mp4')
 
-
 cv.namedWindow('THRESHOLD')
 
 cv.createTrackbar('UPPER', 'THRESHOLD', 255, 255, nothing)
