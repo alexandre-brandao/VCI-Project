@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-r"""Training executable for detection models.
+"""Training executable for detection models.
 
 This executable is used to train DetectionModels. There are two ways of
 configuring the training job:
@@ -52,8 +52,13 @@ from object_detection.builders import graph_rewriter_builder
 from object_detection.builders import model_builder
 from object_detection.legacy import trainer
 from object_detection.utils import config_util
-    
+
 tf.logging.set_verbosity(tf.logging.INFO)
+
+#Set this to true to avoid CUDA CORE ALLOCATION ERRORS
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+sess = tf.Session(config=config)
 
 flags = tf.app.flags
 flags.DEFINE_string('master', '', 'Name of the TensorFlow master to use.')

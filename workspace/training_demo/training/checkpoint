@@ -1,2 +1,6 @@
-model_checkpoint_path: "/home/neon/TensorFlow/workspace/training_demo/training/model.ckpt-0"
-all_model_checkpoint_paths: "/home/neon/TensorFlow/workspace/training_demo/training/model.ckpt-0"
+model_checkpoint_path: "model.ckpt-12851"
+all_model_checkpoint_paths: "model.ckpt-2295"
+all_model_checkpoint_paths: "model.ckpt-4757"
+all_model_checkpoint_paths: "model.ckpt-7473"
+all_model_checkpoint_paths: "model.ckpt-10140"
+all_model_checkpoint_paths: "model.ckpt-12851"

@@ -19,12 +19,10 @@ sys.path.append("..")
 
 # ## Object detection imports
 # Here are the imports from the object detection module.
+from object_detection.utils import label_map_util
 
-# In[3]:
-
-from objectdetection.utils import label_map_util
-
-from objectdetection.utils import visualization_utils as vis_util
+# For more information on this library, its recommend to go to https://github.com/tensorflow/models/blob/master/research/object_detection/utils/visualization_utils.py
+from object_detection.utils import visualization_utils as vis_util
 
 
 # # Model preparation
@@ -33,9 +31,13 @@ from objectdetection.utils import visualization_utils as vis_util
 #
 # Any model exported using the `export_inference_graph.py` tool can be loaded here simply by changing `PATH_TO_CKPT` to point to a new .pb file.
 #
-# By default we use an "SSD with Mobilenet" model here. See the [detection model zoo](https://github.com/tensorflow/models/blob/master/object_detection/g3doc/detection_model_zoo.md) for a list of other models that can be run out-of-the-box with varying speeds and accuracies.
+# By default we use an "RCNN" model here. See the [detection model zoo](https://github.com/tensorflow/models/blob/master/object_detection/g3doc/detection_model_zoo.md) for a list of other models that can be run out-of-the-box with varying speeds and accuracies.
 
-# In[4]:
+
+#Set this to true to avoid CUDA CORE ALLOCATION ERRORS
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+sess = tf.Session(config=config)
 
 # What model to download.
 MODEL_NAME = 'inference_graph'
@@ -61,17 +63,12 @@ with detection_graph.as_default():
 # ## Loading label map
 # Label maps map indices to category names, so that when our convolution network predicts `5`, we know that this corresponds to `airplane`.  Here we use internal utility functions, but anything that returns a dictionary mapping integers to appropriate string labels would be fine
 
-# In[7]:
-
 label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
 categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES, use_display_name=True)
 category_index = label_map_util.create_category_index(categories)
 
 
 # ## Helper code
-
-# In[8]:
-
 def load_image_into_numpy_array(image):
   (im_width, im_height) = image.size
   return np.array(image.getdata()).reshape(
@@ -82,6 +79,14 @@ def load_image_into_numpy_array(image):
 cap = cv2.VideoCapture('/home/neon/Documents/VCI-Project/Deliverables4/CAMBADA.mp4')
 outkey = ord('q')
 
+# Program support variable declaration
+key_elements_ID = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+
+############################################################
+# #### # #### # #### # #### MAIN #### # #### # #### # #### #
+############################################################
+
 with detection_graph.as_default():
   with tf.Session(graph=detection_graph) as sess:
     while True:
@@ -90,17 +95,21 @@ with detection_graph.as_default():
       # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
       image_np_expanded = np.expand_dims(image_np, axis=0)
       image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
+      
       # Each box represents a part of the image where a particular object was detected.
       boxes = detection_graph.get_tensor_by_name('detection_boxes:0')
+      
       # Each score represent how level of confidence for each of the objects.
       # Score is shown on the result image, together with the class label.
       scores = detection_graph.get_tensor_by_name('detection_scores:0')
       classes = detection_graph.get_tensor_by_name('detection_classes:0')
       num_detections = detection_graph.get_tensor_by_name('num_detections:0')
+      
       # Actual detection.
       (boxes, scores, classes, num_detections) = sess.run(
           [boxes, scores, classes, num_detections],
           feed_dict={image_tensor: image_np_expanded})
+
       # Visualization of the results of a detection.
       vis_util.visualize_boxes_and_labels_on_image_array(
           image_np,
@@ -108,19 +117,12 @@ with detection_graph.as_default():
           np.squeeze(classes).astype(np.int32),
           np.squeeze(scores),
           category_index,
+          track_ids=key_elements_ID,
+          skip_labels=False,
           use_normalized_coordinates=True,
-          line_thickness=8)
+          line_thickness=6)
 
-      cv2.imshow('object detection', cv2.resize(image_np, (800,600)))
+      cv2.imshow('object detection', cv2.resize(image_np, (1600,1280)))
       if cv2.waitKey(1) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
         break
-
-print('\n\n\n------------------------------AAAAAAAAA------------------------------------------\n------------------------------------------------')
-print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
-tf.test.is_gpu_available(
-    cuda_only=False, min_cuda_compute_capability=None
-)
-
-import tensorflow as tf
-tf.test.gpu_device_name()
