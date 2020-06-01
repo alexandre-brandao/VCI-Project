@@ -1,7 +1,7 @@
 import numpy as np
 import cv2 as cv
 
-cap = cv.VideoCapture('CAMBADA.mp4')
+cap = cv.VideoCapture('../Deliverables4/CAMBADA.mp4')
 
 if not cap.isOpened():
         print("Cannot open camera")

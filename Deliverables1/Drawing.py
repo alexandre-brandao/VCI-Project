@@ -42,7 +42,7 @@ cv.putText(img, '00'+str(123456789), (5, 445), font, 0.4, (255, 255, 255), lineT
 cv.imshow('frame', img)
 
 #Now put addimg on top of img, bottom left corner dim = (100,150)
-addimg = cv.imread('construcsite.jpg')
+addimg = cv.imread('panda.jpg')
 Scale_Percentage = 30
 width = int(addimg.shape[0] * Scale_Percentage / 100)
 height = int(addimg.shape[1] * Scale_Percentage / 100)

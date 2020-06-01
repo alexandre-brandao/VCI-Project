@@ -2,7 +2,7 @@ import numpy as np
 import cv2 as cv
 
 #Load a color image in grayscale
-img = cv.imread('construcsite.jpg', 0)
+img = cv.imread('panda.jpg', 0)
 cv.imshow('image', img)
 
 k = cv.waitKey(0)

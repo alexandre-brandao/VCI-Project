@@ -26,7 +26,7 @@
 import numpy as np
 import cv2 as cv
 
-cap = cv.VideoCapture('CAMBADA.mp4')
+cap = cv.VideoCapture('../Deliverables4/CAMBADA.mp4')
 
 # Define the codec and create VideoWriter object
 fourcc = cv.VideoWriter_fourcc(*'XVID')

@@ -2,7 +2,7 @@ import numpy as np
 import cv2 as cv
 import matplotlib.pyplot as plt
 
-cap = cv.VideoCapture('CAMBADA.mp4')
+cap = cv.VideoCapture('../Deliverables4/CAMBADA.mp4')
 
 plt.ion()
 fig = plt.figure()
@@ -19,7 +19,7 @@ while cap.isOpened():
     #frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     #frame = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
     #frame = cv.cvtColor(frame, cv.COLOR_BGR2YUV)
-    frame = cv.cvtColor(frame, cv.COLOR_BGR2YCrCb)
+    #frame = cv.cvtColor(frame, cv.COLOR_BGR2YCrCb)
     resolution = 1080*1920
     #plt.clf()
     cv.imshow('Video', frame)
