@@ -20,5 +20,5 @@
 
 **Extra:** 
 In case of an ERROR related to the checkpoint, it is recommend to clear the checkpoints and all associated weight and retrain the model from scratch.
-In case of insufficient RAM the program is capable of expanding its resources to the graphics card RAM. This limitation has only been recently lifted
+In case of insufficient RAM the program is capable of expanding its resources to the graphics card VRAM. This limitation has only been recently lifted
 
