@@ -18,5 +18,7 @@
 
 **Note:** The #### represents a number which is the checkpoint number of the weights of the model that were saved at a certain point in training.
 
-**Extra:** In case of an ERROR related to the checkpoint, it is recommend to clear the checkpoints and all associated weight and retrain the model from scratch.
+**Extra:** 
+[In case of an ERROR related to the checkpoint, it is recommend to clear the checkpoints and all associated weight and retrain the model from scratch.]
+
 
