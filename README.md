@@ -1,52 +1,89 @@
-# VCI-Project
-## Deliverables
+# VCI - Deliverable 5  
+---  
+## Tensorflow Installation - GPU
+### 1) Requirements
+- Python 3.7
+- pip (package installer for python)
+- Nvidia GPU (GTX 650 or newer)
+- CUDA Toolkit v.10.0
+- CUDNN 7.6.5
+- Visual C++ 2015 Build Tools (for windows)
+(**warning:** uninstall other vc_redist_2015 dependencies that you have!)
 
-### Deliverable 1 (26/02/2020):
+### 2) Packages for python
+```
+pip install --upgrade tensorflow-gpu==1.14
+pip install pillow
+pip install lxml
+pip install jupyter
+pip install matploblib
+pip install opencv-contrib-python
+pip install pathlib
+pip install Cython
+pip install labelImg
+```
 
-  Acquire images using the Raspberry camera or webcam connected to your computer.
-  Explore saving videos using compression algorithms (ex. H.264, MJPEG, etc.).
-  Apply color calibration (intensity normalization, white balance, etc).
-  Include a watermark (it can be a string identifying the group or a chosen picture).
-  Video player able to work with the camera in real-time and read video files.
+### 3) Models
+- Download [TensorFlow Models v.1.13.0](https://github.com/tensorflow/models/tree/r1.13.0) release models;
+- Extract zip in path of your choice;
+- Rename "models-1.13.0" folder to "models" only.
 
-### Deliverable 2 (11/03/2020):
+### 4) Protobuf
+- Download lastest protoc release [here](https://github.com/protocolbuffers/protobuf/releases) that fits your OS (Win, Linux or Osx);
+- Extract the contents of the downloaded ```protoc-VERSION-OS.zip``` in a directory ```<PATH_TO_PB>``` of your choice (e.g. ```C:\Program Files\Google Protobuf``` for windows);
+- Add ```<PATH_TO_PB>``` to your Path environment variable:
+    - **Windows:**  
+    In "environment variables" > PATH, add the following (examples):  
+    ```C:\Program Files\Google Protobuf\bin ```  
+    ```C:\Program Files\Google Protobuf\include ```
+    - **Linux:**  
+    In a terminal:  
+    ``` export PATH="<PATH_TO_PB>/bin/:$PATH" ``` (General)  
+    ``` export PATH="/user/jreis/protoc-x.x.x-linux-x86_64/bin/:$PATH" ``` (Example)
+- In a new Terminal, cd into ```models/research/``` directory and run the following command:  
+``` protoc object_detection/protos/*.proto --python_out=. ```
 
-  Transform the acquired images to other color spaces, namely YUV and HSV.
-  Calculate and display the histograms in real-time of the acquired and transformed images.
-  Convert the acquired images to grayscale and apply histogram equalization.
-  Apply gaussian and blur filters to the acquired images, exploring different filter kernels.
+### 5) Add new PATH
+- Change directory to ```models\research``` and execute the following cmd:  
+```
+pip install .
+```
+- Add ```research/slim``` to your **PYTHONPATH**:  
+    - **Windows:**  
+    In "environment variables" > PYTHONPATH, add the following:  
+    (Press ```NEW...```  if you don't have PYTHONPATH, and write PYTHONPATH)  
+    ```<PATH_TO_YOUR_PROJECT>\models\research\slim ```
+    - **Linux:**  
+    In a terminal (in ```models/research```):  
+    ``` export PYTHONPATH=$PYTHONPATH:<PATH_TO_TF>/TensorFlow/models/research/slim ```
 
-### Deliverable 3 (25/03/2020):
+### 6) COCO API
+- **Windows:**  
+```
+pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
+```
+- **Linux:**  
+```
+git clone https://github.com/cocodataset/cocoapi.git
+cd cocoapi/PythonAPI
+make
+cp -r pycocotools <PATH_TO_TF>/TensorFlow/models/research/
+```
 
-  Interact with the OpenCV windows, namely using the mouse (you have to implement the method cv.setMouseCallback()) and trackbars (see for example the methods cv.getTrackbarPos(), cv.createTrackbar()).
-  Segment the most important colors of the CAMBADA soccer field based on color threshold. This threshold is controlled by the developed trackbars in the previous exercise.
-  Perform object detection on grayscale images, resulting from the previous segmentation, morphological operators and low level image features (ball, goals, soccer lines, robots, referee / people, etc).
-  Extra mile: Explore automatic segmentation algorithms (e.g. watershed, region growing, etc).
+- The default metrics are based on those used in Pascal VOC evaluation.  
+To use the COCO ```object detection``` metrics add metrics_set: ```"coco_detection_metrics"``` to the eval_config message in the config file.
 
- ###  Deliverable 4 (15/04/2020):
+### -- Useful links
+[* Windows anaconda install, with CUDA and CUDNN installation steps](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html#set-env)  
 
-  Find image gradients (Sobel, Scharr and Laplacian derivatives).
-  Apply the Canny edge detection algorithm, exploring its parameters. Explore how to manipulate the corresponding contours.
-  Perform object detection using contour detection.
-  Perform line detection and ball detection using the Hough transform  (ex. this should allow the detection of balls with different colors and balls in the air).
-  Extra mile: Explore other object detection algorithms (e.g. Machine Learning).
+---
+## Execute project
+### 1) Tensorflow - ModeNet
+- Copy  ```research/``` folder into folder ```models/``` (overwrite if necessary?);
+- Change directory to ```models/research/object_detection/```;
+- ```python object_detection_robots.py``` or ```python3 object_detection_robots.py```.
 
-### Deliverable 5 (06/05/2020):
-
-  Perform intrinsic and extrinsic camera parameter calibration using a chess board.
-
-### Deliverable 6 (20/05/2020):
-
-  Explore the Lucas-Kanade optical flow algorithm to perform object tracking. Using the developed object detection algorithms, the software must be able to distinguish which objects are being tracked (multiple balls and robots; assigning an unique ID,  etc).
-  Estimate the travelled distance of the ball and teams during a game.
-
-### Deliverable 7 (June):
-> Demo in a soccer game between CAMBADA and a human team.
-> Build an application that is able to:
-
-  Detect and track the robots of CAMBADA, the humans, the referee and the ball.
-  Estimate the travelled distance of the ball, referee and teams during the game.
-  Detect successful passes between the players, goal attempts, goalkeeper saves and goals.
-  Output the game statistics at the end of the game.
-
-PEEPS, ENJOY
+### 2) Tensorflow - Faster R-CNN trained model
+- Copy  ```models/``` folder into your project folder, where ```models/``` is stored (it wont overwrite everything);
+- Change directory to ```models/workspace/training_demo/```;
+- ```python objectdetection.py``` or ```python3 objectdetection.py```.
