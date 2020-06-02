@@ -4,7 +4,7 @@
 - Do keep the files as they are and only edit what must be edited
 
 # To run a model you must 
-1.  Make sure your .jpg(JPEG)
+1.  Make sure your iamge format are .jpg(JPEG)
 2.  Make sure your images are labeled 1.jpg, 2.pjg, 3.jpg,... and so on
 3.  val.txt file must be created with each line consisting of all image numbering, keep the other in check.(sort)
 4.  Make sure you the labelImg program and label your boxes accordingly.
