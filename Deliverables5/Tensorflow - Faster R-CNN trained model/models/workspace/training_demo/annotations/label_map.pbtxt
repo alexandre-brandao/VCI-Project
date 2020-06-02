@@ -1,0 +1,76 @@
+ item {
+    id: 1
+    name: 'R_Goalie'
+}
+
+ item {
+    id: 2
+    name: 'B_Goalie'
+}
+
+ item {
+    id: 3
+    name: 'Referee'
+}
+
+ item {
+    id: 4
+    name: 'RED2'
+}
+
+ item {
+    id: 5
+    name: 'RED3'
+}
+
+ item {
+    id: 6
+    name: 'RED4'
+}
+
+ item {
+    id: 7
+    name: 'RED5'
+}
+
+ item {
+    id: 8
+    name: 'RED6'
+}
+
+ item {
+    id: 9
+    name: 'BLUE2'
+}
+
+ item {
+    id: 10
+    name: 'BLUE3'
+}
+
+ item {
+    id: 11
+    name: 'BLUE4'
+}
+ 
+  item {
+    id: 12
+    name: 'BLUE5'
+}
+
+  item {
+    id: 13
+    name: 'BLUE6'
+}
+
+  item {
+    id: 14
+    name: 'BALL'
+}
+
+
+
+
+
+
+
