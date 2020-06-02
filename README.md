@@ -1,3 +1,5 @@
+**Note**: Each individual folder until deliverable 4 has a README.md file with some information related to the programs
+
 # VCI - Deliverable 5  
 ---  
 ## Tensorflow Installation - GPU
