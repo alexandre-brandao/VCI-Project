@@ -10,10 +10,13 @@
 4.  Make sure you the labelImg program and label your boxes accordingly.
 5.  Copy all the XML files to the annotations/xmls folder
 6.  Run "python3 create_tf_record.py" on the command line
-7.  Create/get the appropriate .config and edit the .config file of the next line accordingly
-8.  Run "python3 train.py --logtostderr --train_dir=%ABSOLUTE_PATH%/training/ -- --pipeline_config_path%ABSOLUTE_PATH%/training/faster_rcnn_inception_v2_coco.config  ...This is a mere example
+7.  Create/get the appropriate faster_rcnn_inception_v2_coco.config and edit the faster_rcnn_inception_v2_coco.config file pathways
+8.  Run "python3 train.py --logtostderr --train_dir=%ABSOLUTE_PATH%/training/ --pipeline_config_path=%ABSOLUTE_PATH%/training/faster_rcnn_inception_v2_coco.config  ...This is a mere example
 9.  Once you think it's trained you may cancel anytime halfway
-10. Run "python3 export_inference_graph.py --input_type=image_tensor --pipeline_config_path=training/*.config --trained_checkpoint_prefix=training/model.cpkt-#### --output_directory=inference_graph/"
+10. Run "python3 export_inference_graph.py --input_type=image_tensor --pipeline_config_path=training/faster_rcnn_inception_v2_coco.config --trained_checkpoint_prefix=training/model.cpkt-#### --output_directory=inference_graph/"
+11. Run "python3 objectdetection_v2.py"
 
+**Note:** The #### represents a number which is the checkpoint number of the weights of the model that were saved at a certain point in training.
 
+**Extra:** In case of an ERROR related to the checkpoint, it is recommend to clear the checkpoints and all associated weight and retrain the model from scratch.
 
