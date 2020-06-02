@@ -19,6 +19,6 @@
 **Note:** The #### represents a number which is the checkpoint number of the weights of the model that were saved at a certain point in training.
 
 **Extra:** 
-[In case of an ERROR related to the checkpoint, it is recommend to clear the checkpoints and all associated weight and retrain the model from scratch.]
-
+In case of an ERROR related to the checkpoint, it is recommend to clear the checkpoints and all associated weight and retrain the model from scratch.
+In case of insufficient RAM the program is capable of expanding its resources to the graphics card RAM. This limitation has only been recently lifted
 
